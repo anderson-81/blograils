@@ -1,0 +1,48 @@
+<div class="container">
+   <div class="row">
+      <div class="col-md-8">
+         <h1>Create Post</h1>
+      </div>
+   </div>
+   <div class="row">
+      <div class="col-md-8">
+         <%= form_for @post, :html => { multipart: true } do |f| %>
+         <div class="form-group">
+            <% if @post.errors.any? %>
+            <div id="error_explanation">
+               <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+               <ul>
+                  <% @post.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                  <% end %>
+               </ul>
+            </div>
+            <% end %>
+         </div>
+         <div class="form-group">
+            <%= f.hidden_field :user_id, :value => @user_id, :class => 'form-control'  %>
+         </div>
+         <div class="form-group">
+            <%= f.label :title %>
+            <%= f.text_field :title, :class => 'form-control' %>
+         </div>
+         <div class="form-group">
+            <%= f.label :briefing %>
+            <%= f.text_field :briefing, :class => 'form-control' %>
+         </div>
+         <div class="form-group">
+            <%= f.label :text %>
+            <%= f.text_area :text, :class => 'form-control', :rows => 15 %>
+         </div>
+         <div class="form-group">
+            <label for="">Image</label>
+            <%= f.file_field :avatar, :class => 'form-control' %>
+         </div>
+         <div class="form-group">
+            <%= f.submit nil, :class => 'btn btn-success col-md-2 pull-right', :value => 'Create' %>
+            <%= link_to 'Back', posts_path, :class=>'btn btn-info col-md-2 pull-right' %>
+         </div>
+         <% end %>
+      </div>
+   </div>
+</div>

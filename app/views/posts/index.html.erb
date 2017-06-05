@@ -1,0 +1,77 @@
+<div class="container">
+   <div class="row">
+      <div class="col-md-2 logo">
+         <h2>blogRails</h2>
+      </div>
+   </div>
+   <div class="row">
+      <div class="col-md-8 titlemain1">
+         <% if not @postlast.nil? %>
+            <%= link_to post_path(@postlast), :class => 'lnkHome' do %>
+               <%= @postlast.title %>
+               <ul>
+                  <li class="txtBriefing"><%= @postlast.briefing %></li>
+               </ul>
+            <% end %>
+         <% end %>
+         <div class="row">
+            <hr>
+         </div>
+      </div>
+      <div class="col-md-4">
+         <%= form_tag(posts_path, :method => :get) do %>
+         <div class="input-group">
+            <input type="text" class="form-control" id="search" name="search" placeholder="Search for previous posts">
+            <span class="input-group-btn">
+            <button class="btn btn-info" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+         </div>
+         <h3 class="titleAll">All Posts</h3>
+         <% if not @postlist.nil? %>
+            <ul>
+            <% @postlist.each do |post| %>
+               <%= link_to post_path(post), :class => 'lnkHome' do %>
+                  <li>
+                     <p class="titlelist"><%= post.title %></p>
+                  </li>
+               <% end %>
+            <% end %>
+            <ul>
+         <% end %>
+         <div class="pull-right">
+            <%= will_paginate @postlist %>
+         </div>
+         <% end %>
+      </div>
+   </div>
+   <div class="row">
+      <div class="col-md-7">
+         <hr>
+      </div>
+   </div>
+   <div class="row">
+      <% if not @posts2.nil? %>
+         <% @posts2.each do |post| %>
+            <%= link_to post_path(post), :class => 'lnkHome' do %>
+               <div class="col-md-4 titlemain2"><%= post.title %></div>
+            <% end %>
+         <% end %>
+      <% end %>
+   </div>
+   <div class="row">
+      <div class="col-md-7">
+         <hr>
+      </div>
+   </div>
+   <div class="row">
+      <% if not @posts4.nil? %>
+         <% @posts4.each do |post| %>
+            <%= link_to post_path(post), :class => 'lnkHome' do %>
+               <div class="col-md-2 titlemain4">
+                  <img src="<%= post.avatar.url %>" class="img-responsive imghome">
+                  <p class="titlemain4"><%= post.title %></p>
+               </div>
+            <% end %>
+         <% end %>
+      <% end %>
+   </div>
+</div>
