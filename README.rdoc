@@ -1,4 +1,4 @@
-# blogRails
+# blogRails #
 
 1 - Description:
 - Prototype of a Blog developed using Ruby on Rails and SQLite database.
