@@ -2,6 +2,7 @@
 
 1 - Description:
 - Prototype of a Blog developed using Ruby on Rails and SQLite database.
+- Theme: [https://startbootstrap.com/themes/clean-blog/](https://startbootstrap.com/themes/clean-blog/)
  
  
 2 - Tools developments: 
