@@ -1,37 +1,32 @@
-<style>
-body {
-  background-image: url("back1.jpg") !important;
-}
-</style>
-
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 <div class="container">
    <div class="row">
-      <div class="col-md-4">
+      <div class="col-md-offset-4 col-md-4 col-md-offset-4">
          <div class="form-group">
+            <br>
             <h2>Login</h2>
          </div>
          <div class="form-group">
             <%= f.label :email %><br />
-            <%= f.email_field :email, autofocus: true, :class => 'form-control', :value => 'admin@admin.com' %>
+            <%= f.email_field :email, autofocus: true, :class => 'form-control', :value => '', :maxlength => 20 %>
          </div>
          <div class="form-group">
             <%= f.label :password %><br />
-            <%= f.password_field :password, autocomplete: "off", :class => 'form-control', :value => '121181' %>
+            <%= f.password_field :password, autocomplete: "off", :class => 'form-control', :value => '', :maxlength => 20 %>
          </div>
          <% if devise_mapping.rememberable? -%>
          <div class="form-group">
-            <%= f.check_box :remember_me %>
-            <%= f.label :remember_me %>
+            <%= f.label :remember_me, :class => "pull-right" %>
+            <%= f.check_box :remember_me, :class => "pull-right" %>
          </div>
          <% end -%>
          <div class="form-group">
-            <%= f.submit "Login" %>
+           <br>
+         </div>
+         <div class="form-group">
+            <%= f.submit "Login", :class => "btn btn-success pull-right col-md-4" %>
          </div>
       </div>
    </div>
 </div>
 <% end %>
-<script>
-   jQuery("input[type=submit").attr("class","btn btn-success pull-right col-md-3");
-</script>

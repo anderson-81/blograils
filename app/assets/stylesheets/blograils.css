@@ -1,102 +1,123 @@
+body {
+  background-color: azure !important;
+}
+
 .navbar-default .navbar-toggle .icon-bar {
-background-color: black;
+  background-color: black;
 }
 .logo {
-border-radius: 10px;
-color: white;
-border: 5px solid white;
-background-color: red;
-font-weight: bold;
-margin-left:10px;
+  border-radius: 10px;
+  color: white;
+  border: 5px solid white;
+  background-color: red;
+  font-weight: bold;
+  margin-left: 10px;
 }
 .imgArticle {
-border: 0px none;
-float: left;
-padding-right: 10px;
-padding-bottom: 1px;
-width: 40%;
+  border: 2px solid black;
+  border-radius: 6px;
 }
 textarea {
-resize: none;
-border: 1px solid black !important;
+  resize: none;
+  border: 1px solid black !important;
 }
-input[type=text], input[type=email], input[type=password], input[type=file] {
-border:1px solid black;
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="file"] {
+  border: 1px solid black;
 }
-.titlemain1{
-font-size:55px;
-font-weight: bold;
-color:black;
+.titlemain1 {
+  font-size: 55px;
+  font-weight: bold;
+  color: black;
 }
-.txtBriefing{
-font-size:25px;
-font-weight: bold;
-color:gray;
-font-family: "Times New Roman";
+.txtBriefing {
+  font-size: 25px;
+  font-weight: bold;
+  color: gray;
+  font-family: "Times New Roman";
 }
-.titlemain2{
-font-size:25px;
-font-weight: bold; 
+.titlemain2 {
+  font-size: 25px;
+  font-weight: bold;
 }
-.titlemain4{
-font-size:15px;
-font-weight: bold; 
+.titlemain4 {
+  font-size: 15px;
+  font-weight: bold;
 }
-.titlelist{
-font-weight:bold;
+.titlelist {
+  font-weight: bold;
 }
-.titleAll{
-color:gray;
+.titleAll {
+  color: gray;
 }
-a{
-text-decoration: none !important;
+a {
+  text-decoration: none !important;
 }
 .lnkHome:link {
-background-color:  transparent !important;
-color: black !important;
+  background-color: transparent !important;
+  color: black !important;
 }
 .lnkHome:visited {
-background-color:  transparent !important;
-color: black !important;
+  background-color: transparent !important;
+  color: black !important;
 }
 .lnkHome:hover {
-background-color:  transparent !important;
-color: red !important; 
+  background-color: transparent !important;
+  color: red !important;
 }
 .lnkHome:active {
-background-color:  transparent !important;
-color: black !important;
-} 
+  background-color: transparent !important;
+  color: black !important;
+}
 /*alerts*/
 .alert-info {
-color: white !important;
-background-color: #1A5E7F !important;
-border-color: white !important;
+  color: white !important;
+  background-color: #1a5e7f !important;
+  border-color: white !important;
 }
-.alert-success, .alert-notice {
-color: white !important;
-background-color: green !important;
-border-color: white !important;
+.alert-success,
+.alert-notice {
+  color: white !important;
+  background-color: green !important;
+  border-color: white !important;
 }
 .alert-danger {
-color: white !important;
-background-color: red !important;
-border-color: white !important;
+  color: white !important;
+  background-color: red !important;
+  border-color: white !important;
 }
 .alert-warning {
-color: white !important;
-background-color: orange !important;
-border-color: white !important;
+  color: white !important;
+  background-color: orange !important;
+  border-color: white !important;
 }
-.pfooter{
-font-weight:bold;
-font-size:12; 
+.pfooter {
+  font-weight: bold;
+  font-size: 12;
+  text-align: center;
 }
-.pbriefing{
-color:gray;
-font-weight:bold;
-font-size:20px; 
+.pbriefing {
+  color: gray;
+  font-weight: bold;
+  font-size: 20px;
 }
-.center-block{
-float: none !important;
+.center-block {
+  float: none !important;
+}
+.padding-right-10 {
+  padding-right: 10px;
+}
+.image-last {
+  width: 450px !important;
+  height: 250px !important;
+  border: solid black 3px;
+  border-radius: 6px;
+}
+.image-bottom {
+  width: 200px !important;
+  height: 100px !important;
+  border: solid black 3px;
+  border-radius: 6px;
 }

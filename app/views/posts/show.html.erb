@@ -1,38 +1,37 @@
 <div class="container">
    <div class="row">
-      <div class="col-md-7 center-block">
-         <h1><%= @post.title %></h1>
-      </div>
-   </div>
-   <div class="row">
-      <div class="col-md-7 center-block">
-         <ul>
-            <li>
-               <p class="pbriefing"><%= @post.briefing %></p>
-            </li>
-         </ul>
-      </div>
-   </div>
-   <div class="row">
-      <div class="center-block">
-         <div class="col-md-7 center-block">
+      <div class="col-md-offset-1 col-md-10 col-md-offset-1">
+         <div class="form-group">
+            <h1><%= @post.title %></h1>
+         </div>
+         <div class="form-group">
             <br>
-            Posted by <%= @post.getUserName() %> <br>
+         </div>
+         <div class="form-group">
+            <p class="pbriefing"><%= @post.briefing %></p>
+         </div>
+         <div class="form-group">
+            Posted by <%= @post.getUserName() %>
             Created at <%= @post.created_at.strftime("%d/%m/%Y - %H:%M") %> 
-            <% if @post.updated_at != @post.created_at %><br>
+            <% if @post.updated_at != @post.created_at %>
             Edited at <%= @post.updated_at.strftime("%d/%m/%Y - %H:%M") %>
             <% end %>
             <% if user_signed_in? %> 
             <%= link_to 'Edit', edit_post_path(@post), :class => "btn btn-warning col-md-2 pull-right" %>
             <% end %>
+         </div>
+         <div class="form-group">
+            <hr>
+         </div>
+         <div class="form-group">
+            <img src=<%= @post.avatar.url %> class="img-responsive imgArticle">
+         </div>
+         <div class="form-group">
             <br>
          </div>
-      </div>
-   </div>
-   <div class="row">
-      <div class="col-md-7 center-block">
-         <img src=<%= @post.avatar.url %> class="img-responsive imgArticle">
-         <%= @post.text %>
+          <div class="form-group">
+            <p style="float:right;"><%= @post.text %></p>
+         </div>
       </div>
    </div>
 </div>

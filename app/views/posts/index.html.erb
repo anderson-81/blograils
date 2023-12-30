@@ -12,6 +12,7 @@
                <ul>
                   <li class="txtBriefing"><%= @postlast.briefing %></li>
                </ul>
+               <img src="<%= @postlast.avatar.url %>" class="img-responsive image-last">
             <% end %>
          <% end %>
          <div class="row">
@@ -67,7 +68,7 @@
          <% @posts4.each do |post| %>
             <%= link_to post_path(post), :class => 'lnkHome' do %>
                <div class="col-md-2 titlemain4">
-                  <img src="<%= post.avatar.url %>" class="img-responsive imghome">
+                  <img src="<%= post.avatar.url %>" class="img-responsive image-bottom">
                   <p class="titlemain4"><%= post.title %></p>
                </div>
             <% end %>

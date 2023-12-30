@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show, :search]
   before_action :set_post, except: [:search]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  
+
   def index
     @postall = Post.all.order(created_at: :desc)
     @postlast = @postall[0]
@@ -20,12 +20,16 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    @user_id = current_user.id
+    @post.user_id = current_user.id
+    @post
   end
 
   def edit
     @post = Post.find(params[:id])
-    @user_id = @post.user_id
+    if !@post.user_id.equal? current_user.id
+      flash[:danger] = "This post can't be edited or destroyed by this user."
+      redirect_to post_path(@post)
+    end
   end
 
   def create
@@ -34,28 +38,37 @@ class PostsController < ApplicationController
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
       else
-        @user_id = current_user.id
         format.html { render :new}
       end
     end
   end
 
   def update
-    respond_to do |format|
-      if @post.update(post_params)
-        format.html { redirect_to @post, notice: 'Person was successfully updated.' }
-      else
-        @user = User.find(@post.user_id)
-        @user_id = @user.id
-        format.html { render :edit }
+    @post = Post.find(params[:id])
+    if @post.user_id.equal? current_user.id
+      respond_to do |format|
+        if @post.update(post_params)
+          format.html { redirect_to @post, notice: 'Post was successfully updated.' }
+        else
+          format.html { render :edit }
+        end
       end
+    else
+      flash[:danger] = "This post can't be edited this user."
+      redirect_to post_path(@post)
     end
   end
 
   def destroy
-    @post.destroy
-    respond_to do |format|
-      format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
+    @post = Post.find(params[:id])
+    if @post.user_id.equal? current_user.id
+      @post.destroy
+      respond_to do |format|
+        format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
+      end
+    else
+      flash[:danger] = "This post can't be destroyed this user."
+      redirect_to post_path(@post)
     end
   end
 
